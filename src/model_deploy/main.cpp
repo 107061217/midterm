@@ -467,8 +467,16 @@ void SelectMode() {
                     else {
                         uLCD.filled_circle(x, y, 5, BLUE);
                     }
-                    if ((x > 64 && x < 104) && output == 1 && !match && color%2) {
+                    if ((x > 74 && x < 94) && output == 1 && !match && color%2) {
+                        score += 4;
+                        match = 1;
+                    }
+                    else if ((x > 64 && x < 104) && output == 1 && !match && color%2) {
                         score += 2;
+                        match = 1;
+                    }
+                    else if ((x > 74 && x < 94) && output == 1 && !match && !(color%2)) {
+                        score += 1;
                         match = 1;
                     }
                     else if ((x > 64 && x < 104) && output == 1 && !match && !(color%2)) {
