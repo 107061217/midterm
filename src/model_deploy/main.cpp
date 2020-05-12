@@ -309,7 +309,51 @@ void SelectMode() {
     uLCD.printf("Choose song\n");
     uLCD.printf("Taiko\n");
     while(1) {
-        if (!sw3) {
+        if(output == 1) {      // next mode
+            uLCD.cls();
+            uLCD.color(WHITE);
+            uLCD.printf("\nSelect the Mode\n"); 
+            if (mode == 1) {
+                uLCD.color(GREEN);
+                uLCD.printf("Foward\n");
+                uLCD.printf("Backward\n");
+                uLCD.color(RED);
+                uLCD.printf("Choose song\n");
+                uLCD.color(GREEN);
+                uLCD.printf("Taiko\n");
+                mode = 2;
+            }
+            else if (mode == 2) {
+                uLCD.color(GREEN);
+                uLCD.printf("Foward\n");
+                uLCD.printf("Backward\n");
+                uLCD.printf("Choose song\n");
+                uLCD.color(RED);
+                uLCD.printf("Taiko\n");
+                mode = 3;
+            }
+            else if (mode == 3) {
+                uLCD.color(RED);
+                uLCD.printf("Foward\n");
+                uLCD.color(GREEN);
+                uLCD.printf("Backward\n");
+                uLCD.printf("Choose song\n");
+                uLCD.printf("Taiko\n");
+                mode = 0;
+            }
+            else if (mode == 0) {
+                uLCD.color(GREEN);
+                uLCD.printf("Foward\n");
+                uLCD.color(RED);
+                uLCD.printf("Backward\n");
+                uLCD.color(GREEN);
+                uLCD.printf("Choose song\n");
+                uLCD.printf("Taiko\n");
+                mode = 1;
+            }
+            wait(0.1);
+        }
+        else if (!sw3) {
             uLCD.cls();
             uLCD.color(GREEN);  //FOWARD
             if (mode == 0) { 
@@ -452,50 +496,7 @@ void SelectMode() {
                 return;
             }  
         }
-        else if(output == 1) {      // next mode
-            uLCD.cls();
-            uLCD.color(WHITE);
-            uLCD.printf("\nSelect the Mode\n"); 
-            if (mode == 1) {
-                uLCD.color(GREEN);
-                uLCD.printf("Foward\n");
-                uLCD.printf("Backward\n");
-                uLCD.color(RED);
-                uLCD.printf("Choose song\n");
-                uLCD.color(GREEN);
-                uLCD.printf("Taiko\n");
-                mode = 2;
-            }
-            else if (mode == 2) {
-                uLCD.color(GREEN);
-                uLCD.printf("Foward\n");
-                uLCD.printf("Backward\n");
-                uLCD.printf("Choose song\n");
-                uLCD.color(RED);
-                uLCD.printf("Taiko\n");
-                mode = 3;
-            }
-            else if (mode == 3) {
-                uLCD.color(RED);
-                uLCD.printf("Foward\n");
-                uLCD.color(GREEN);
-                uLCD.printf("Backward\n");
-                uLCD.printf("Choose song\n");
-                uLCD.printf("Taiko\n");
-                mode = 0;
-            }
-            else if (mode == 0) {
-                uLCD.color(GREEN);
-                uLCD.printf("Foward\n");
-                uLCD.color(RED);
-                uLCD.printf("Backward\n");
-                uLCD.color(GREEN);
-                uLCD.printf("Choose song\n");
-                uLCD.printf("Taiko\n");
-                mode = 1;
-            }
-            wait(0.1);
-        }
+        
     }
 }
 
